@@ -55,8 +55,6 @@ body {
 /* LAYOUT */
 main {
   position: relative;
-  /* width: clamp(7rem, 20vw, 15rem);
-  height: 60rem; */
   width: 100%;
   min-height: 100%;
   background-color: rgba(255, 255, 255, 0.35);
@@ -69,8 +67,6 @@ main {
 }
 
 .player {
-  /* padding: clamp(5rem, 13vw, 15rem); */
-
   width: clamp(13rem, 45vw, 50rem);
   height: clamp(35rem, 55vw, 60rem);
   display: flex;
@@ -89,14 +85,12 @@ main {
   letter-spacing: 1px;
   word-spacing: 2px;
   font-weight: 300;
-  /* margin-bottom: 1rem; */
 }
 
 .score {
   font-size: clamp(2rem, 10vw, 8rem);
   font-weight: 300;
   color: #c7365f;
-  /* margin-bottom: auto; */
 }
 
 .player.active {
@@ -135,7 +129,7 @@ main {
   font-size: 3.5rem;
 }
 
-/* ABSOLUTE POSITIONED ELEMENTS */
+/* ABSOLUTELY POSITIONED ELEMENTS */
 .btn {
   position: absolute;
   left: 50%;

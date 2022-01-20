@@ -59,7 +59,7 @@ function App() {
   }
 
   return (
-    <div className="basic">
+    <>
       <Rules />
       <div className="flex">
         <section
@@ -134,7 +134,7 @@ function App() {
           📥 Hold
         </button>
       </div>
-    </div>
+    </>
   );
 }
 
