@@ -14,7 +14,10 @@ function App() {
   const [diceValue, setDiceValue] = useState(0);
 
   function rollDiceHandler() {
-    setDiceImg(Math.trunc(Math.random() * 6) + 1);
+    let dice = Math.trunc(Math.random() * 6) + 1;
+    setDiceImg((cur) =>
+      dice === cur ? (dice < 6 ? dice + 1 : dice - 1) : dice
+    );
   }
 
   useEffect(() => {
@@ -31,6 +34,8 @@ function App() {
       }
     }
   }, [diceImg]);
+
+  console.log(diceImg);
 
   function holdHandler() {
     if (player1.activePlayer) {
@@ -64,10 +69,10 @@ function App() {
       <div className="flex">
         <section
           className={`player ${player1.activePlayer && 'active'} ${
-            player1.totalScore >= 20 && 'winner'
+            player1.totalScore >= 100 && 'winner'
           }`}
         >
-          {player1.totalScore >= 20 && (
+          {player1.totalScore >= 100 && (
             <Confetti
               width="600px"
               height="600px"
@@ -79,7 +84,7 @@ function App() {
           )}
           <h2 className="name">
             Player 1 <br />
-            {player1.totalScore >= 20 && 'wins!'}
+            {player1.totalScore >= 100 && 'wins!'}
           </h2>
           <p className="score">{player1.totalScore}</p>
           <div className="current">
@@ -91,10 +96,10 @@ function App() {
         </section>
         <section
           className={`player ${player2.activePlayer && 'active'} ${
-            player2.totalScore >= 20 && 'winner'
+            player2.totalScore >= 100 && 'winner'
           }`}
         >
-          {player2.totalScore >= 20 && (
+          {player2.totalScore >= 100 && (
             <Confetti
               width="600px"
               height="600px"
@@ -106,7 +111,7 @@ function App() {
           )}
           <h2 className="name">
             Player 2 <br />
-            {player2.totalScore >= 20 && 'wins!'}
+            {player2.totalScore >= 100 && 'wins!'}
           </h2>
           <p className="score">{player2.totalScore}</p>
           <div className="current">
