@@ -35,8 +35,6 @@ function App() {
     }
   }, [diceImg]);
 
-  console.log(diceImg);
-
   function holdHandler() {
     if (player1.activePlayer) {
       setPlayer1((cur) => ({
