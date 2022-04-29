@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import Rules from './components/Rules';
 import Confetti from 'react-confetti';
 
@@ -20,7 +20,7 @@ function App() {
     );
   }
 
-  useEffect(() => {
+  useMemo(() => {
     setDiceValue((cur) => cur + diceImg);
 
     if (diceImg === 1) {
@@ -40,19 +40,20 @@ function App() {
       setPlayer1((cur) => ({
         activePlayer: false,
         currentScore: 0,
-        totalScore: cur.totalScore ? cur.totalScore + diceValue : diceValue,
+        totalScore: cur.totalScore + diceValue,
       }));
-      setDiceValue(0);
+
       setPlayer2((cur) => ({ ...cur, activePlayer: true }));
     } else {
       setPlayer2((cur) => ({
         activePlayer: false,
         currentScore: 0,
-        totalScore: cur.totalScore ? cur.totalScore + diceValue : diceValue,
+        totalScore: cur.totalScore + diceValue,
       }));
-      setDiceValue(0);
+
       setPlayer1((cur) => ({ ...cur, activePlayer: true }));
     }
+    setDiceValue(0);
   }
 
   function newGameHandler() {
