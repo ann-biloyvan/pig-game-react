@@ -263,7 +263,7 @@ main {
   color: white;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 830px) {
   .btn--new {
     top: -6rem;
   }
